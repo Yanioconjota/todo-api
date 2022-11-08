@@ -126,12 +126,13 @@ function addItemToDOM(text, completed) {
 //Method for sending to-do item to API
 
 function sendItemToApi(item) {
-  var req = new XMLHttpRequest();
+  let req = new XMLHttpRequest();
   req.open('POST', '/add');
-  req.send(item);
+  req.setRequestHeader('Content-Type', 'application/json');
+  req.send(JSON.stringify({ item: item }));
 
   req.addEventListener('load', () => {
-    //console.log(req.responseText);
+    console.log(req.responseText);
     console.log('Request done!');
   });
 
