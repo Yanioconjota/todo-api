@@ -13,7 +13,7 @@ api.listen(3000, () => {
 //   res.send('Hello world!');
 // });
 
-api.post((req, res) => {
+api.post('/add', (req, res) => {
   console.log(req.body);
   res.send('Post request received');
 });
